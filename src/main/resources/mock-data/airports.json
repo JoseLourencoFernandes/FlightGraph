@@ -1,0 +1,734 @@
+{
+  "AirportResource": {
+    "Airports": {
+      "Airport": [
+        {
+          "AirportCode": "FRA",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 50.0379,
+              "Longitude": 8.5622
+            }
+          },
+          "CityCode": "FRA",
+          "CountryCode": "DE",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Frankfurt/Main"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Berlin"
+        },
+        {
+          "AirportCode": "MUC",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 48.3538,
+              "Longitude": 11.7861
+            }
+          },
+          "CityCode": "MUC",
+          "CountryCode": "DE",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Munich"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Berlin"
+        },
+        {
+          "AirportCode": "ZRH",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 47.4647,
+              "Longitude": 8.5492
+            }
+          },
+          "CityCode": "ZRH",
+          "CountryCode": "CH",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Zurich"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Zurich"
+        },
+        {
+          "AirportCode": "VIE",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 48.1103,
+              "Longitude": 16.5697
+            }
+          },
+          "CityCode": "VIE",
+          "CountryCode": "AT",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Vienna"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Vienna"
+        },
+        {
+          "AirportCode": "BRU",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 50.9014,
+              "Longitude": 4.4844
+            }
+          },
+          "CityCode": "BRU",
+          "CountryCode": "BE",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Brussels"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Brussels"
+        },
+        {
+          "AirportCode": "LIS",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 38.7813,
+              "Longitude": -9.1359
+            }
+          },
+          "CityCode": "LIS",
+          "CountryCode": "PT",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Lisbon"
+              }
+            ]
+          },
+          "UtcOffset": 1.0,
+          "TimeZoneId": "Europe/Lisbon"
+        },
+        {
+          "AirportCode": "OPO",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 41.2481,
+              "Longitude": -8.6814
+            }
+          },
+          "CityCode": "OPO",
+          "CountryCode": "PT",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Porto"
+              }
+            ]
+          },
+          "UtcOffset": 1.0,
+          "TimeZoneId": "Europe/Lisbon"
+        },
+        {
+          "AirportCode": "FAO",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 37.0144,
+              "Longitude": -7.9659
+            }
+          },
+          "CityCode": "FAO",
+          "CountryCode": "PT",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Faro"
+              }
+            ]
+          },
+          "UtcOffset": 1.0,
+          "TimeZoneId": "Europe/Lisbon"
+        },
+        {
+          "AirportCode": "MAD",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 40.4983,
+              "Longitude": -3.5676
+            }
+          },
+          "CityCode": "MAD",
+          "CountryCode": "ES",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Madrid"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Madrid"
+        },
+        {
+          "AirportCode": "BCN",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 41.2974,
+              "Longitude": 2.0833
+            }
+          },
+          "CityCode": "BCN",
+          "CountryCode": "ES",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Barcelona"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Madrid"
+        },
+        {
+          "AirportCode": "LHR",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 51.47,
+              "Longitude": -0.4543
+            }
+          },
+          "CityCode": "LON",
+          "CountryCode": "GB",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "London Heathrow"
+              }
+            ]
+          },
+          "UtcOffset": 1.0,
+          "TimeZoneId": "Europe/London"
+        },
+        {
+          "AirportCode": "CDG",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 49.0097,
+              "Longitude": 2.5479
+            }
+          },
+          "CityCode": "PAR",
+          "CountryCode": "FR",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Paris Charles de Gaulle"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Paris"
+        },
+        {
+          "AirportCode": "AMS",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 52.3105,
+              "Longitude": 4.7683
+            }
+          },
+          "CityCode": "AMS",
+          "CountryCode": "NL",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Amsterdam"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Amsterdam"
+        },
+        {
+          "AirportCode": "FCO",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 41.8003,
+              "Longitude": 12.2389
+            }
+          },
+          "CityCode": "ROM",
+          "CountryCode": "IT",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Rome Fiumicino"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Rome"
+        },
+        {
+          "AirportCode": "ATH",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 37.9364,
+              "Longitude": 23.9445
+            }
+          },
+          "CityCode": "ATH",
+          "CountryCode": "GR",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Athens"
+              }
+            ]
+          },
+          "UtcOffset": 3.0,
+          "TimeZoneId": "Europe/Athens"
+        },
+        {
+          "AirportCode": "IST",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 41.2753,
+              "Longitude": 28.7519
+            }
+          },
+          "CityCode": "IST",
+          "CountryCode": "TR",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Istanbul"
+              }
+            ]
+          },
+          "UtcOffset": 3.0,
+          "TimeZoneId": "Europe/Istanbul"
+        },
+        {
+          "AirportCode": "CPH",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 55.618,
+              "Longitude": 12.6508
+            }
+          },
+          "CityCode": "CPH",
+          "CountryCode": "DK",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Copenhagen"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Copenhagen"
+        },
+        {
+          "AirportCode": "WAW",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 52.1657,
+              "Longitude": 20.9671
+            }
+          },
+          "CityCode": "WAW",
+          "CountryCode": "PL",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Warsaw Chopin"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Europe/Warsaw"
+        },
+        {
+          "AirportCode": "DXB",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 25.2532,
+              "Longitude": 55.3657
+            }
+          },
+          "CityCode": "DXB",
+          "CountryCode": "AE",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Dubai"
+              }
+            ]
+          },
+          "UtcOffset": 4.0,
+          "TimeZoneId": "Asia/Dubai"
+        },
+        {
+          "AirportCode": "BKK",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 13.69,
+              "Longitude": 100.7501
+            }
+          },
+          "CityCode": "BKK",
+          "CountryCode": "TH",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Bangkok Suvarnabhumi"
+              }
+            ]
+          },
+          "UtcOffset": 7.0,
+          "TimeZoneId": "Asia/Bangkok"
+        },
+        {
+          "AirportCode": "SIN",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 1.3644,
+              "Longitude": 103.9915
+            }
+          },
+          "CityCode": "SIN",
+          "CountryCode": "SG",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Singapore Changi"
+              }
+            ]
+          },
+          "UtcOffset": 8.0,
+          "TimeZoneId": "Asia/Singapore"
+        },
+        {
+          "AirportCode": "HND",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 35.5494,
+              "Longitude": 139.7798
+            }
+          },
+          "CityCode": "TYO",
+          "CountryCode": "JP",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Tokyo Haneda"
+              }
+            ]
+          },
+          "UtcOffset": 9.0,
+          "TimeZoneId": "Asia/Tokyo"
+        },
+        {
+          "AirportCode": "NRT",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 35.772,
+              "Longitude": 140.3929
+            }
+          },
+          "CityCode": "TYO",
+          "CountryCode": "JP",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Tokyo Narita"
+              }
+            ]
+          },
+          "UtcOffset": 9.0,
+          "TimeZoneId": "Asia/Tokyo"
+        },
+        {
+          "AirportCode": "ICN",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 37.4602,
+              "Longitude": 126.4407
+            }
+          },
+          "CityCode": "SEL",
+          "CountryCode": "KR",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Seoul Incheon"
+              }
+            ]
+          },
+          "UtcOffset": 9.0,
+          "TimeZoneId": "Asia/Seoul"
+        },
+        {
+          "AirportCode": "DEL",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 28.5562,
+              "Longitude": 77.1
+            }
+          },
+          "CityCode": "DEL",
+          "CountryCode": "IN",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Delhi"
+              }
+            ]
+          },
+          "UtcOffset": 5.5,
+          "TimeZoneId": "Asia/Kolkata"
+        },
+        {
+          "AirportCode": "JFK",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 40.6413,
+              "Longitude": -73.7781
+            }
+          },
+          "CityCode": "NYC",
+          "CountryCode": "US",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "New York JFK"
+              }
+            ]
+          },
+          "UtcOffset": -4.0,
+          "TimeZoneId": "America/New_York"
+        },
+        {
+          "AirportCode": "EWR",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 40.6895,
+              "Longitude": -74.1745
+            }
+          },
+          "CityCode": "NYC",
+          "CountryCode": "US",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Newark Liberty"
+              }
+            ]
+          },
+          "UtcOffset": -4.0,
+          "TimeZoneId": "America/New_York"
+        },
+        {
+          "AirportCode": "ORD",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 41.9742,
+              "Longitude": -87.9073
+            }
+          },
+          "CityCode": "CHI",
+          "CountryCode": "US",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Chicago O'Hare"
+              }
+            ]
+          },
+          "UtcOffset": -5.0,
+          "TimeZoneId": "America/Chicago"
+        },
+        {
+          "AirportCode": "SFO",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 37.6213,
+              "Longitude": -122.379
+            }
+          },
+          "CityCode": "SFO",
+          "CountryCode": "US",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "San Francisco"
+              }
+            ]
+          },
+          "UtcOffset": -7.0,
+          "TimeZoneId": "America/Los_Angeles"
+        },
+        {
+          "AirportCode": "LAX",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 33.9416,
+              "Longitude": -118.4085
+            }
+          },
+          "CityCode": "LAX",
+          "CountryCode": "US",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Los Angeles"
+              }
+            ]
+          },
+          "UtcOffset": -7.0,
+          "TimeZoneId": "America/Los_Angeles"
+        },
+        {
+          "AirportCode": "YYZ",
+          "Position": {
+            "Coordinate": {
+              "Latitude": 43.6777,
+              "Longitude": -79.6248
+            }
+          },
+          "CityCode": "YTO",
+          "CountryCode": "CA",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Toronto Pearson"
+              }
+            ]
+          },
+          "UtcOffset": -4.0,
+          "TimeZoneId": "America/Toronto"
+        },
+        {
+          "AirportCode": "GRU",
+          "Position": {
+            "Coordinate": {
+              "Latitude": -23.4356,
+              "Longitude": -46.4731
+            }
+          },
+          "CityCode": "SAO",
+          "CountryCode": "BR",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Sao Paulo Guarulhos"
+              }
+            ]
+          },
+          "UtcOffset": -3.0,
+          "TimeZoneId": "America/Sao_Paulo"
+        },
+        {
+          "AirportCode": "JNB",
+          "Position": {
+            "Coordinate": {
+              "Latitude": -26.1337,
+              "Longitude": 28.242
+            }
+          },
+          "CityCode": "JNB",
+          "CountryCode": "ZA",
+          "LocationType": "Airport",
+          "Names": {
+            "Name": [
+              {
+                "@LanguageCode": "EN",
+                "$": "Johannesburg"
+              }
+            ]
+          },
+          "UtcOffset": 2.0,
+          "TimeZoneId": "Africa/Johannesburg"
+        }
+      ]
+    }
+  }
+}
