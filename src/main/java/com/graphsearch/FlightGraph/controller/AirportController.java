@@ -1,13 +1,15 @@
 package com.graphsearch.FlightGraph.controller;
 
 import java.util.List;
+import com.graphsearch.FlightGraph.dto.CreateAirportRequest;
 import com.graphsearch.FlightGraph.model.Airport;
 import com.graphsearch.FlightGraph.service.AirportService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
-
+import java.net.URI;
 
 @RestController
 @RequestMapping("/airports")
@@ -26,12 +28,15 @@ public class AirportController {
 
     @GetMapping("/{code}")
     public Airport getAirport(@PathVariable String code) {
-        return airportService.getAirportByCode(code)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Airport not found: " + code));
+        return airportService.getAirportByCode(code);
     }
 
+    /** See FlightController#createFlight for how @Valid and 201 Created work. */
     @PostMapping
-    public Airport createAirport(@RequestBody Airport airport) {
-        return airportService.addAirport(airport);
+    public ResponseEntity<Airport> createAirport(@Valid @RequestBody CreateAirportRequest request) {
+        Airport airport = airportService.createAirport(request);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{code}").buildAndExpand(airport.getCode()).toUri();
+        return ResponseEntity.created(location).body(airport);
     }
 }
