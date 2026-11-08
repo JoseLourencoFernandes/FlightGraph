@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Gera dados MOCK com a forma das respostas da Lufthansa Open API.
+Generates MOCK data shaped like Lufthansa Open API responses.
 
-  airports.json   -> estilo /references/airports   (coordenadas e fusos reais)
-  schedules.json  -> estilo /operations/schedules  (horarios INVENTADOS, padrao de operacao)
-  prices.json     -> NAO existe na API da Lufthansa; ficheiro separado com fetchedAt/source
+  airports.json   -> /references/airports style   (real coordinates and time zones)
+  schedules.json  -> /operations/schedules style  (MADE-UP times, operating patterns)
+  prices.json     -> does NOT exist in the Lufthansa API; separate file with fetchedAt/source
 
-Os aeroportos sao reais. As rotas sao plausiveis (hubs LH/LX/OS/SN) mas os numeros de voo,
-horas, terminais e precos sao gerados. Nao usar como informacao de viagem.
+Airports are real. Routes are plausible (LH/LX/OS/SN hubs) but flight numbers, times,
+terminals and prices are generated. Not for actual travel information.
 
-Uso:  python3 generate_mock.py [--seed 42] [--price-from 2027-05-08] [--price-to 2027-05-24]
+Usage:  python3 generate_mock.py [--seed 42] [--price-from 2027-05-08] [--price-to 2027-05-24]
 """
 import argparse
 import json
@@ -19,7 +19,7 @@ from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-# code, nome, cityCode, pais, lat, lon, timezone
+# code, name, cityCode, country, lat, lon, timezone
 AIRPORTS = [
     ("FRA", "Frankfurt/Main", "FRA", "DE", 50.0379, 8.5622, "Europe/Berlin"),
     ("MUC", "Munich", "MUC", "DE", 48.3538, 11.7861, "Europe/Berlin"),
@@ -65,7 +65,7 @@ MIDEAST = {"DXB"}
 AMER = {"JFK", "EWR", "ORD", "SFO", "LAX", "YYZ"}
 SOUTH = {"GRU", "JNB"}
 
-# hub -> [(destino, voos_por_dia_em_cada_sentido)]
+# hub -> [(destination, flights_per_day_each_direction)]
 HUB_SPOKES = {
     "FRA": [("LIS", 3), ("OPO", 2), ("FAO", 1), ("MAD", 3), ("BCN", 3), ("LHR", 4), ("CDG", 3),
             ("AMS", 3), ("FCO", 3), ("ATH", 2), ("IST", 2), ("CPH", 3), ("WAW", 2),
@@ -84,7 +84,7 @@ HUB_SPOKES = {
     "BRU": [("LIS", 1), ("OPO", 1), ("MAD", 1), ("BCN", 1), ("LHR", 2), ("CDG", 2), ("FCO", 1),
             ("ATH", 1), ("IST", 1), ("JFK", 1), ("EWR", 1)],
 }
-# (a, b, companhia, voos_por_dia_em_cada_sentido)
+# (a, b, carrier, flights_per_day_each_direction)
 HUB_HUB = [
     ("FRA", "MUC", "LH", 5), ("FRA", "ZRH", "LH", 3), ("FRA", "VIE", "LH", 3), ("FRA", "BRU", "LH", 2),
     ("MUC", "ZRH", "LX", 2), ("MUC", "VIE", "OS", 3), ("ZRH", "VIE", "LX", 2),
@@ -103,7 +103,7 @@ TERMINALS = {
 SHORT_AC = ["320", "321", "32N", "32Q", "E90"]
 LONG_AC = ["359", "333", "346", "74H", "789"]
 
-# primeiro numero de voo por (companhia, longo_curso)
+# first flight number per (carrier, long_haul)
 NUM_START = {
     ("LH", False): 1100, ("LH", True): 400,
     ("LX", False): 700, ("LX", True): 10,
@@ -138,7 +138,7 @@ def block_minutes(o, d, rng):
 
 
 def window(o, d):
-    """Janela de partida (horas locais) consoante o tipo de rota."""
+    """Departure window (local hours) depending on the route type."""
     km = dist_km(o, d)
     if km < 3500:
         return (6.25, 21.0)
@@ -174,7 +174,7 @@ def days_pattern(rng, i):
 
 def build_flights(rng):
     counters = dict(NUM_START)
-    pairs = []  # (origem_hub, destino, companhia, f)
+    pairs = []  # (origin_hub, destination, carrier, f)
     for hub, spokes in HUB_SPOKES.items():
         for dest, f in spokes:
             pairs.append((hub, dest, HUB_CARRIER[hub], f))
@@ -220,7 +220,7 @@ def schedule_entry(fl):
     arr = (dep + timedelta(minutes=fl["block"])).astimezone(tz_d)
     return {
         "TotalJourney": {"Duration": iso_duration(fl["block"])},
-        "Flight": {  # objeto (nao array) quando ha um unico voo, como na API real
+        "Flight": {  # object (not array) when there is a single flight, like the real API
             "Departure": {
                 "AirportCode": fl["origin"],
                 "ScheduledTimeLocal": {"DateTime": dep.strftime("%Y-%m-%dT%H:%M")},
@@ -279,8 +279,8 @@ def build_schedules(flights):
             },
         })
     return {
-        "_comment": "MOCK. Forma inspirada em GET /v2/operations/schedules/{origin}/{destination}/{date}. "
-                    "Horarios, numeros de voo e terminais sao gerados.",
+        "_comment": "MOCK. Shape inspired by GET /v2/operations/schedules/{origin}/{destination}/{date}. "
+                    "Times, flight numbers and terminals are generated.",
         "_season": {"Effective": SEASON_START.isoformat(), "Expiration": SEASON_END.isoformat()},
         "routes": routes,
     }
@@ -330,13 +330,13 @@ def main():
     (out / "schedules.json").write_text(json.dumps(build_schedules(flights), indent=2, ensure_ascii=False))
 
     prices = build_prices(flights, rng, date.fromisoformat(args.price_from), date.fromisoformat(args.price_to))
-    header = {"_comment": "MOCK. A API da Lufthansa nao devolve precos; separado de proposito.",
+    header = {"_comment": "MOCK. The Lufthansa API does not return prices; kept separate on purpose.",
               "currency": "EUR", "fetchedAt": FETCHED_AT}
     body = ",\n".join(json.dumps(p, ensure_ascii=False) for p in prices)
     (out / "prices.json").write_text(
         json.dumps(header, ensure_ascii=False)[:-1] + ',\n"prices": [\n' + body + "\n]}\n")
 
-    print(f"airports: {len(AIRPORTS)} | voos (padroes): {len(flights)} | precos: {len(prices)}")
+    print(f"airports: {len(AIRPORTS)} | flights (patterns): {len(flights)} | prices: {len(prices)}")
 
 
 if __name__ == "__main__":

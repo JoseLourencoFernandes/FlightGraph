@@ -1,4 +1,4 @@
-{"_comment": "MOCK. A API da Lufthansa nao devolve precos; separado de proposito.", "currency": "EUR", "fetchedAt": "2026-10-25T09:00:00Z",
+{"_comment": "MOCK. The Lufthansa API does not return prices; kept separate on purpose.", "currency": "EUR", "fetchedAt": "2026-10-25T09:00:00Z",
 "prices": [
 {"carrier": "LH", "flightNumber": "1100", "origin": "FRA", "destination": "LIS", "departureDate": "2027-05-08", "cabin": "ECONOMY", "amount": 130.9, "currency": "EUR", "source": "mock-pricing", "fetchedAt": "2026-10-25T09:00:00Z"},
 {"carrier": "LH", "flightNumber": "1100", "origin": "FRA", "destination": "LIS", "departureDate": "2027-05-09", "cabin": "ECONOMY", "amount": 161.9, "currency": "EUR", "source": "mock-pricing", "fetchedAt": "2026-10-25T09:00:00Z"},

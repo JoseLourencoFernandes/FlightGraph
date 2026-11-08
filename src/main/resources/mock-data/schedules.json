@@ -1,5 +1,5 @@
 {
-  "_comment": "MOCK. Forma inspirada em GET /v2/operations/schedules/{origin}/{destination}/{date}. Horarios, numeros de voo e terminais sao gerados.",
+  "_comment": "MOCK. Shape inspired by GET /v2/operations/schedules/{origin}/{destination}/{date}. Times, flight numbers and terminals are generated.",
   "_season": {
     "Effective": "2027-05-01",
     "Expiration": "2027-05-31"
