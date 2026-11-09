@@ -36,6 +36,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
@@ -50,8 +54,8 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Desativado ate existir uma BD configurada (passo 5: Postgres + Docker Compose).
-		     Com estas dependencias ativas e sem datasource, a app nao arranca.
+		<!-- Disabled until a database is configured (ROADMAP step 3.2: Postgres + Docker Compose).
+		     With these on and no datasource, the app fails to start.
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
