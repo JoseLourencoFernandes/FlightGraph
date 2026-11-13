@@ -3,16 +3,17 @@ package com.graphsearch.FlightGraph.routing;
 import com.graphsearch.FlightGraph.model.Flight;
 
 import java.time.Instant;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
- * The flight network as a directed, temporal graph — ROADMAP step 2.1.
+ * The flight network as a directed, temporal graph.
  *
  * Nodes are airports (IATA codes); every edge is ONE concrete flight with its own departure and
  * arrival instant, so there can be many edges between the same two airports.
@@ -27,23 +28,33 @@ import java.util.Map;
  */
 public class FlightNetwork {
 
-    private final Map<String, List<Flight>> graph;
+    private final Map<String, List<Flight>> departuresByAirport;
+    private final Set<String> airports;
 
     public FlightNetwork(Collection<Flight> flights) {
-        this.graph = new HashMap<>();
+        Map<String, List<Flight>> byOrigin = new HashMap<>();
+        Set<String> allAirports = new HashSet<>();
         for (Flight flight : flights) {
-            addFlight(flight);
+            byOrigin.computeIfAbsent(flight.getOrigin(), k -> new ArrayList<>()).add(flight);
+            // Destination-only airports (e.g. a hub with no outgoing flights in the data) are nodes too.
+            allAirports.add(flight.getOrigin());
+            allAirports.add(flight.getDestination());
         }
-    }
 
-    private void addFlight(Flight flight) {
-        graph.computeIfAbsent(flight.getOrigin(), k -> new ArrayList<>()).add(flight);
+        // Sort once at build time by real instant; List.copyOf freezes each list so callers can't mutate it.
+        Map<String, List<Flight>> sorted = new HashMap<>();
+        for (Map.Entry<String, List<Flight>> entry : byOrigin.entrySet()) {
+            List<Flight> departures = entry.getValue();
+            departures.sort(Comparator.comparing(FlightNetwork::departureOf));
+            sorted.put(entry.getKey(), List.copyOf(departures));
+        }
+        this.departuresByAirport = Map.copyOf(sorted);
+        this.airports = Set.copyOf(allAirports);
     }
-
 
     /** All flights leaving {@code airport}, ordered by departure instant. Empty list for unknown airports. */
     public List<Flight> departuresFrom(String airport) {
-        return Collections.unmodifiableList(graph.getOrDefault(airport, new ArrayList<>()));
+        return departuresByAirport.getOrDefault(airport, List.of());
     }
 
     /**
@@ -51,11 +62,37 @@ public class FlightNetwork {
      * ordered by departure instant. Bonus: the list is sorted, so this can be a binary search.
      */
     public List<Flight> departuresBetween(String airport, Instant from, Instant to) {
-        throw new UnsupportedOperationException("TODO 2.1");
+        List<Flight> departures = departuresFrom(airport);
+        int start = firstDepartingAtOrAfter(departures, from);
+        int end = start;
+        while (end < departures.size() && !departureOf(departures.get(end)).isAfter(to)) {
+            end++;
+        }
+        // subList is a view of an immutable list, so it is unmodifiable too.
+        return departures.subList(start, end);
+    }
+
+    /** Binary search ("lower bound"): index of the first flight departing at or after {@code instant}. */
+    private static int firstDepartingAtOrAfter(List<Flight> departures, Instant instant) {
+        int low = 0;
+        int high = departures.size();
+        while (low < high) {
+            int mid = (low + high) >>> 1;
+            if (departureOf(departures.get(mid)).isBefore(instant)) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+
+    private static Instant departureOf(Flight flight) {
+        return flight.getDepartureTime().toInstant();
     }
 
     /** Every airport that appears as origin or destination of at least one flight. */
     public Set<String> airports() {
-        throw new UnsupportedOperationException("TODO 2.1");
+        return airports;
     }
 }
